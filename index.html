@@ -28,8 +28,7 @@
         .box {
             position: fixed;
             bottom: 7%;
-            left: 5.75%;
-            transform: translateX(-50%);
+            left: 2.5%;
             display: flex;
             gap: 20px;
         }
@@ -106,7 +105,11 @@
             const img = document.createElement("img");
             img.src = "images/copied.png";
             img.className = "floatingGif";
-            img.style.width = Math.min(window.innerWidth * 0.06 + (Math.random() - 0.5) * 70,  240) + "px";
+            img.style.width = Math.max(Math.min(window.innerWidth * 0.06 + (Math.random() - 0.5) * 70,  240) ,120)+ "px";
+            if (window.innerWidth < 800) {
+                x_mod = 0;
+                y_mod = 0; 
+            }
             const spawnX = position.x + x_mod+ position.width / 2 + (Math.random() - 0.5) * 320;
             const spawnY = position.y + y_mod + position.height / 2 + (Math.random() - 0.5) * 320;
 
